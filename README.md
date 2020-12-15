@@ -307,7 +307,6 @@ function.proj とファイル名を入力
 **run.csx**
 
 ```csharp
-<?xml version="1.0" encoding="utf-8" ?>
 using System;
 using System.Linq;
 using System.Net.Http;
