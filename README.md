@@ -45,7 +45,7 @@
 　  
 　  
 「作成」をクリックします。
- 　 
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f006.png?raw=true)
 　  
 　  
