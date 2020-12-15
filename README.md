@@ -62,11 +62,126 @@
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f016.png?raw=true)
   
+  
 
+# App Service #
+　  
+## App Service のリソース作成  ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f021.png?raw=true)
+  
 
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f022.png?raw=true)
+  
 
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f023.png?raw=true)
+  
 
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f024.png?raw=true)
+  
+  
 
+# サービスプリンシパル #
+　  
+## アプリの登録のリソース作成  ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f031.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f032.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f033.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f034.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f035.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f036.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f037.png?raw=true)
+  
+  
+  
+
+# アクセス制御（IAM） #
+　  
+## サブスクリプション ID の確認  ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f041.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f042.png?raw=true)
+  
+ 
+## カスタムロールの作成 ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f043.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f044.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f045.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f046.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f047.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f048.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f049.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f050.png?raw=true)
+  
+ 
+## カスタムロールのサービスプリンシパルへの割り当て ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f051.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f052.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f053.png?raw=true)
+  
+  
+  
+
+# 関数のコードの編集 #
+　  
+## function.proj の追加 ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f060.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f061.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f062.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f063.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f064.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f065.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f066.png?raw=true)
+  
+ 
 **function.proj**
 
 ```xml
@@ -89,6 +204,14 @@
 ```
 　  
 　  
+## run.csx の編集 ##
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f067.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f068.png?raw=true)
+  
+ 
 
 **run.csx**
 
@@ -204,6 +327,24 @@ public static async void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f069.png?raw=true)
+  
+  
+　  
+　  
+　  
+# カスタムメトリックを確認 #
+　  
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f070.png?raw=true)
+  
+
+![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f071.png?raw=true)
+  
+ 
+
+
+
+
 これで、ハンスオンは終了です。お疲れ様でした。
 　  
 　  
