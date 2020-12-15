@@ -3,59 +3,60 @@
 - 関数を作成し、Azure の App Service からメトリックを取得し Azure Monitor のカスタム メトリックとして表示します。
 - ロールを割り当てて Azure リソースへのアクセスを付与するために使用するアクセス制御 (IAM) の基本が体験できます。
 - Azure のリソースを Functions を使って操作する方法を体験することがメインになっており、C# のコードを書くことがメインではありません。 ※あくまでも簡単に体験していただくものです。ベストプラクティスなどをご提案するものではありません。
-　  
-　  
- 　  
- 　  
- 
+  
+  
+  
+  
+  
 # 関数アプリ #
 　  
 ## 関数アプリのリソース作成  ##
-　  
-　  
+  
+  
+  
 グローバル検索から関数アプリのブレードを開きます。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f001.png?raw=true)
   
-　 
-　 
+  
+  
 関数のリソースを追加します。
-
+  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f002.png?raw=true)
   
-　 
-　 
+  
+  
 以下の通り入力して下さい。
-
+  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f003.png?raw=true)
-   
-　 
-　 
+  
+  
+  
 以下の通り入力して下さい。
-
+  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f004.png?raw=true)
   
-　 
-　 
+  
+  
 以下の通り入力して下さい。
-
+  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f005.png?raw=true)
-   
-　 
-　 
+  
+  
+  
 「作成」をクリックします。
-
+  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f006.png?raw=true)
-   
-　 
-　 
+  
+  
+  
 リソースが作成されたら、リソースに移動します。
-
+  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f007.png?raw=true)
   
-　 
-　 
-　  
+  
+  
+  
 ## TimerTrigger 関数を作成  ##
 　  
 リソースメニューから「関数」をクリック。
