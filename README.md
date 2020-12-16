@@ -13,20 +13,22 @@
 　  
 最初に関数アプリのリソースを作成します。そして、関数アプリのリソースのマネージド ID を有効にします。マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。サービス プリンシパルにはロールを割り当てることができます。これによって、カスタム メトリックのデータを送信できるアクセス許可を持つロールを関数アプリのリソースに割り当てることができます。
 　  
-マネージド ID については[こちら](https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview?WT.mc_id=AZ-MVP-5002467)をご覧ください。
+　  
+マネージド ID については[こちら](https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview?WT.mc_id=AZ-MVP-5002467)公式ドキュメントをご覧ください。
 　  
 　  
 ## 関数アプリのリソース作成  ##
 　  
 　  
-　  
 グローバル検索から関数アプリのブレードを開きます。
+　  
 　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f001.png?raw=true)
 　  
 　  
 　  
 関数のリソースを追加します。
+　  
 　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f002.png?raw=true)
 　  
