@@ -10,18 +10,24 @@
 　  
 # 関数アプリ #
 　  
+　  
+最初に関数アプリのリソースを作成します。そして、関数アプリのリソースのマネージド ID を有効にします。マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。サービス プリンシパルにはロールを割り当てることができます。これによって、カスタム メトリックのデータを送信できるアクセス許可を持つロールを関数アプリのリソースに割り当てることができます。
+　  
+マネージド ID については[こちら](https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview?WT.mc_id=AZ-MVP-5002467)をご覧ください。
+　  
+　  
 ## 関数アプリのリソース作成  ##
-　
+　  
 　  
 　  
 グローバル検索から関数アプリのブレードを開きます。
-　
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f001.png?raw=true)
 　  
 　  
 　  
 関数のリソースを追加します。
-  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f002.png?raw=true)
 　  
 　  
@@ -33,7 +39,7 @@
 　  
 　  
 以下の通り入力して下さい。
-　　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f004.png?raw=true)
 　  
 　  
@@ -60,15 +66,17 @@
 ## TimerTrigger 関数を作成  ##
 　  
 リソースメニューから「関数」をクリック。
-　
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f008.png?raw=true)
-  
-
+　  
+　  
+　  
 「追加」をクリック。
-
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f009.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f010.png?raw=true)
@@ -76,38 +84,49 @@
 
 ## リソースへのマネージド ID の割り当て ##
 　  
+　  
+マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。関数アプリのリソースのマネージド IDをオンにすることで、関数アプリに Azure の他のリソースへの操作に対するアクセス許可を付与可能になります。
+　  
+　  
 リソースメニューから「ID」->「オン」->「保存」
-
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f011.png?raw=true)
-  
-
+　  
+　  
+　  
 「はい」をクリック
-
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f012.png?raw=true)
-  
-
+　  
+　  
+他のリソースへの操作に対するアクセス許可を付与するには、サービスプリンシパルにそのアクセス許可を持ったロールを割り当てます。
+　  
+　  
 「Azure ロールの割り当て」をクリック
-
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f013.png?raw=true)
-  
-
+　  
+　  
+　  
 ## リソースに Azure ロールの割り当て ##
 　  
 「ロールの割り当ての追加（プレビュー）」をクリック
-
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f014.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
-
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f015.png?raw=true)
-  
-
+　  
+　  
+　  
 以下のように役割が割り当てられているか確認して下さい。
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f016.png?raw=true)
-  
-  
-
+　  
+　  
+　  
 # App Service #
 　  
 ## App Service のリソース作成  ##
@@ -115,24 +134,27 @@
 グローバル検索から App Service のブレードを開きます。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f021.png?raw=true)
-  
-
+　  
+　  
+　  
 「追加」をクリック。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f022.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f023.png?raw=true)
-  
-
+　  
+　  
+　  
 「作成」をクリック。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f024.png?raw=true)
-  
-  
-
+　  
+　  
+　  
 # サービスプリンシパル #
 　  
 ## アプリの登録のリソース作成  ##
@@ -140,18 +162,21 @@
 グローバル検索からアプリの登録のブレードを開きます。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f031.png?raw=true)
-  
-
+ 　  
+　  
+　  
 「新規登録」をクリック。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f032.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f033.png?raw=true)
-  
-
+　  
+　  
+　  
 アプリケーション（クライアント ID）、ディレクトリ（テナント ID）をコピーし保管します。
 
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f034.png?raw=true)
