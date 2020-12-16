@@ -12,6 +12,7 @@
 　  
 　  
 マネージド ID については以下の公式ドキュメントをご覧ください。
+　  
 [Azure リソースのマネージド ID とは](https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview?WT.mc_id=AZ-MVP-5002467)
 　  
 　  
@@ -100,10 +101,12 @@
 　  
 　  
 サービスプリンシパルについてはの公式ドキュメントをご覧ください。
+　  
 [Azure Active Directory のアプリケーション オブジェクトとサービス プリンシパル オブジェクト](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/app-objects-and-service-principals?WT.mc_id=AZ-MVP-5002467)
 　  
 　  
 また、以下の公式ドキュメントも参考になります。
+　  
 [方法:リソースにアクセスできる Azure AD アプリケーションとサービス プリンシパルをポータルで作成する](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/howto-create-service-principal-portal?WT.mc_id=AZ-MVP-5002467)
 　  
 　  
@@ -162,6 +165,7 @@ App Service は、Web アプリや REST API など HTTP ベースのサービス
 　  
 　  
 App Service については以下の公式ドキュメントをご覧ください。
+　  
 [App Service の概要](https://docs.microsoft.com/ja-jp/azure/app-service/overview?WT.mc_id=AZ-MVP-5002467)
 　  
 　  
