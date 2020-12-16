@@ -99,6 +99,14 @@
 マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。関数アプリのリソースのマネージド IDをオンにすることで、関数アプリに Azure の他のリソースへの操作に対するアクセス許可を持つロールを割り当て可能になります。
 　  
 　  
+サービスプリンシパルについてはの公式ドキュメントをご覧ください。
+[Azure Active Directory のアプリケーション オブジェクトとサービス プリンシパル オブジェクト](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/app-objects-and-service-principals?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
+また、以下の公式ドキュメントも参考になります。
+[方法:リソースにアクセスできる Azure AD アプリケーションとサービス プリンシパルをポータルで作成する](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/howto-create-service-principal-portal?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
 リソースメニューから「ID」->「オン」->「保存」
 　  
 　  
@@ -191,14 +199,6 @@ App Service については以下の公式ドキュメントをご覧くださ�
 # サービスプリンシパル #
 　  
 次に単体の Azure のリソースとしてサービスプリンシパルを作成します。先ほど、関数アプリでマネージド ID を有効にしました。マネージド ID はオンにしたリソースのみに紐づくサービスプリンシパルですが、アプリの登録で作成した、サービスプリンシパルは、関数アプリや App Service にホストされたアプリなどから利用することができます。
-　  
-　  
-サービスプリンシパルについてはの公式ドキュメントをご覧ください。
-[Azure Active Directory のアプリケーション オブジェクトとサービス プリンシパル オブジェクト](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/app-objects-and-service-principals?WT.mc_id=AZ-MVP-5002467)
-　  
-　  
-また、以下の公式ドキュメントも参考になります。
-[方法:リソースにアクセスできる Azure AD アプリケーションとサービス プリンシパルをポータルで作成する](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/howto-create-service-principal-portal?WT.mc_id=AZ-MVP-5002467)
 　  
 　  
 このハンズオンでは、サービスプリンシパルに、App Service のストレージの使用状況を取得するアクセス許可を付与し、そのサービスプリンシパルを関数アプリから呼び出して利用します。
