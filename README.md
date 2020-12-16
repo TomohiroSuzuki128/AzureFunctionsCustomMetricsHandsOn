@@ -6,39 +6,49 @@
 　  
 　  
 　  
-　  
-　  
 # 関数アプリ #
 　  
-## 関数アプリのリソース作成  ##
-　
+最初に関数アプリのリソースを作成します。そして、関数アプリのリソースのマネージド ID を有効にします。マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。サービス プリンシパルにはロールを割り当てることができます。これによって、カスタム メトリックのデータを送信できるアクセス許可を持つロールを関数アプリのリソースに割り当てることができます。
 　  
+　  
+マネージド ID については以下の公式ドキュメントをご覧ください。
+　  
+[Azure リソースのマネージド ID とは](https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
+　  
+## 関数アプリのリソース作成  ##
 　  
 グローバル検索から関数アプリのブレードを開きます。
-　
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f001.png?raw=true)
 　  
 　  
 　  
-関数のリソースを追加します。
-  
+「追加」をクリックし関数のリソース新規作成メニューを開きます。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f002.png?raw=true)
 　  
 　  
 　  
 以下の通り入力して下さい。
 　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f003.png?raw=true)
 　  
 　  
 　  
 以下の通り入力して下さい。
-　　  
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f004.png?raw=true)
 　  
 　  
 　  
 以下の通り入力して下さい。
+　  
 　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f005.png?raw=true)
 　  
@@ -46,11 +56,13 @@
 　  
 「作成」をクリックします。
 　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f006.png?raw=true)
 　  
 　  
 　  
 リソースが作成されたら、リソースに移動します。
+　  
 　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f007.png?raw=true)
 　  
@@ -59,218 +71,372 @@
 　  
 ## TimerTrigger 関数を作成  ##
 　  
+関数アプリのリソースは、複数の関数を管理するための箱に過ぎません。次に関数アプリのリソースの中に「関数」を作成します。
+　  
+　  
 リソースメニューから「関数」をクリック。
-　
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f008.png?raw=true)
-  
-
+　  
+　  
+　  
 「追加」をクリック。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f009.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f010.png?raw=true)
-  
-
+　  
+　  
+　  
 ## リソースへのマネージド ID の割り当て ##
 　  
+マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。関数アプリのリソースのマネージド IDをオンにすることで、関数アプリに Azure の他のリソースへの操作に対するアクセス許可を持つロールを割り当て可能になります。
+　  
+　  
+サービスプリンシパルについてはの公式ドキュメントをご覧ください。
+　  
+[Azure Active Directory のアプリケーション オブジェクトとサービス プリンシパル オブジェクト](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/app-objects-and-service-principals?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
+また、以下の公式ドキュメントも参考になります。
+　  
+[方法:リソースにアクセスできる Azure AD アプリケーションとサービス プリンシパルをポータルで作成する](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/howto-create-service-principal-portal?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
 リソースメニューから「ID」->「オン」->「保存」
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f011.png?raw=true)
-  
-
+　  
+　  
+　  
 「はい」をクリック
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f012.png?raw=true)
-  
-
+　  
+　  
+他のリソースへの操作に対するアクセス許可を付与するには、サービスプリンシパルにそのアクセス許可を持ったロールを割り当てます。
+　  
+　  
 「Azure ロールの割り当て」をクリック
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f013.png?raw=true)
-  
-
+　  
+　  
+　  
 ## リソースに Azure ロールの割り当て ##
 　  
 「ロールの割り当ての追加（プレビュー）」をクリック
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f014.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f015.png?raw=true)
-  
-
+　  
+　  
+　  
 以下のように役割が割り当てられているか確認して下さい。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f016.png?raw=true)
-  
-  
-
+　  
+　  
+これで、関数の作成は終了です。関数の実際のコードは後ほど追加します。
+　  
+　  
+　  
 # App Service #
+　  
+App Service は、Web アプリや REST API など HTTP ベースのサービスをホストする Azure の PaaS 環境を提供するリソースです。
+　  
+　  
+App Service については以下の公式ドキュメントをご覧ください。
+　  
+[App Service の概要](https://docs.microsoft.com/ja-jp/azure/app-service/overview?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
 　  
 ## App Service のリソース作成  ##
 　  
 グローバル検索から App Service のブレードを開きます。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f021.png?raw=true)
-  
-
+　  
+　  
+　  
 「追加」をクリック。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f022.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f023.png?raw=true)
-  
-
+　  
+　  
+　  
 「作成」をクリック。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f024.png?raw=true)
-  
-  
-
+　  
+　  
+　  
 # サービスプリンシパル #
+　  
+次に単体の Azure のリソースとしてサービスプリンシパルを作成します。先ほど、関数アプリでマネージド ID を有効にしました。マネージド ID はオンにしたリソースのみに紐づくサービスプリンシパルですが、アプリの登録で作成した、サービスプリンシパルは、関数アプリや App Service にホストされたアプリなどから利用することができます。
+　  
+　  
+このハンズオンでは、サービスプリンシパルに、App Service のストレージの使用状況を取得するアクセス許可を付与し、そのサービスプリンシパルを関数アプリから呼び出して利用します。
+　  
+　  
+今回は、あえて2つの方法で他の Azure リソースへアクセスする方法を使用していますので、サービスプリンシパルとマネージド ID との違いに注意してみて下さい。
+　  
+　  
+なお、通常はマネージド IDが利用できるシナリオでは、マネージド IDを利用することが推奨となっています。
+　  
+　  
 　  
 ## アプリの登録のリソース作成  ##
 　  
 グローバル検索からアプリの登録のブレードを開きます。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f031.png?raw=true)
-  
-
+ 　  
+　  
+　  
 「新規登録」をクリック。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f032.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f033.png?raw=true)
-  
-
+　  
+　  
+　  
 アプリケーション（クライアント ID）、ディレクトリ（テナント ID）をコピーし保管します。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f034.png?raw=true)
-  
-
+　  
+　  
+　  
 リソースメニューから「証明書とシークレット」->「新しいクライアントシークレット」
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f035.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f036.png?raw=true)
-  
-
+　  
+　  
+　  
 値（シークレット）をコピーし保管します。
-
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f037.png?raw=true)
-  
-  
-  
-
+　  
+　  
+　  
 # アクセス制御（IAM） #
 　  
 ## サブスクリプション ID の確認  ##
 　  
 サブスクリプションブレードを開き、自分で作成したサブルクリプションをクリック。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f041.png?raw=true)
-
-
+　  
+　  
+　  
 サブスクリプション ID をコピーし保管します。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f042.png?raw=true)
-  
- 
+　  
+　  
+　  
 ## カスタムロールの作成 ##
-　
-リソースメニューから「アクセス制御(IAM)」->「役割」->「追加」  
+　  
+　  
+カスタムロールは組み込みのロールで準備されていないロールを使いたくなった時に使用します。アクセス許可を自由に設定したロールを作成することができます。
+　  
+　  
+リソースメニューから「アクセス制御(IAM)」->「役割」->「追加」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f043.png?raw=true)
-  
-
+　  
+　  
+　  
 「カスタムロールの追加」をクリック。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f044.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f045.png?raw=true)
-  
-
-「JSON」->「編集」  
+　  
+　  
+　  
+「JSON」->「編集」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f046.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f047.png?raw=true)
-  
-
+　  
+　  
+　  
 「確認と作成」をクリック。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f048.png?raw=true)
-  
-
+　  
+　  
+　  
 「作成」をクリック。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f049.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り表示されることを確認します。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f050.png?raw=true)
-  
- 
+　  
+　  
+　  
 ## カスタムロールのサービスプリンシパルへの割り当て ##
-　 
-「アクセスの確認」->「ロールの割り当てを追加」   
+　  
+「アクセスの確認」->「ロールの割り当てを追加」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f051.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通り入力して下さい。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f052.png?raw=true)
-  
-
+　  
+　  
+　  
 リソースメニューから「アクセス制御(IAM)」->「ロールの割り当て」->「app service」で検索し、以下の通り表示されることを確認します。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f053.png?raw=true)
-  
-  
-  
-
+　  
+　  
+　  
 # 関数のコードの編集 #
 　  
+　  
+関数は Visual Studio や Visual Studio で開発し、デプロイできますが、Azure ポータル上でも開発することができます。今回は ポータル上で開発します。
+　  
+　  
 ## function.proj の追加 ##
-
-関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「高度なツール」->「移動」  
+　  
+ファルの追加は、関数アプリのメニューからでも可能ですが、Kudu コンソールからも可能です。Kudu コンソールを体験いただくために、今回は Kudu コンソールからファイルを追加します。
+　  
+　  
+Kudu コンソールについては以下の公式ドキュメントをご覧ください。
+　  
+[Kudu コンソールの目的と機能について説明する](https://docs.microsoft.com/ja-jp/learn/modules/azure-diagnose-application-startup-errors-with-kudu-console/2-kudu-console-concepts?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
+関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「高度なツール」->「移動」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f060.png?raw=true)
-  
-
+　  
+　  
+　  
 「Debug console」->「CMD」  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f061.png?raw=true)
-  
-
+　  
+　  
+　  
 画面上のターミナルで以下のコマンドを実行
+　  
+　  
 ```bash
 cd D:\home\site\wwwroot\TimerTriggerCustomMetric
 ```
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f062.png?raw=true)
-  
-
-「＋」->「New File」 
+　  
+　  
+　  
+「＋」->「New File」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f063.png?raw=true)
-  
-
+　  
+　  
+　  
 function.proj とファイル名を入力
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f064.png?raw=true)
-  
-
+　  
+　  
+　  
 編集アイコンをクリック。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f065.png?raw=true)
-  
-
+　  
+　  
+　  
 以下の通りコピペで入力して下さい。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f066.png?raw=true)
-  
- 
+　  
+　  
+　  
 **function.proj**
 
 ```xml
@@ -293,19 +459,30 @@ function.proj とファイル名を入力
 ```
 　  
 　  
+　  
 ## run.csx の編集 ##
-　 
-関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「関数」->「TimerTriggerCustomMetric」   
+　  
+　  
+今度は逆に、関数アプリの構成ファイルをポータルの関数アプリのメニューから編集してみます。
+　  
+　  
+関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「関数」->「TimerTriggerCustomMetric」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f067.png?raw=true)
-  
-
+　  
+　  
+　  
+なお、今回は時間の都合で、さまざまな ID をハードコーディングしていますが、本来は、関数アプリのアプリケーション設定に登録し、それを呼び出す方法が推奨です。
+　  
+　  
 以下の通りコピペで入力して下さい。
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f068.png?raw=true)
-  
- 
-
+　  
+　  
 **run.csx**
-
+　  
+　  
 ```csharp
 using System;
 using System.Linq;
@@ -417,25 +594,28 @@ public static async void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 　  
+　  
 テスト実行し、以下のように成功すれば OK です。
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f069.png?raw=true)
-  
-  
 　  
 　  
 　  
 # カスタムメトリックを確認 #
-　 
+　  
 App Service リソース「<自分で作成した App Service>」のリソースメニューから「メトリック」->「my custom metrics」->「File System Storage Usage Custom」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f070.png?raw=true)
-  
-
+　  
+　  
+　  
 メトリックが表示されれば OKです。
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f071.png?raw=true)
-  
- 
-
-
+　  
+　  
+　  
 これで、ハンスオンは終了です。お疲れ様でした。
 　  
 　  
