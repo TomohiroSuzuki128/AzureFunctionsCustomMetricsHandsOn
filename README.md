@@ -311,7 +311,9 @@ App Service については以下の公式ドキュメントをご覧くださ�
 　  
 　  
 　  
-「JSON」->「編集」  
+「JSON」->「編集」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f046.png?raw=true)
 　  
 　  
@@ -375,7 +377,17 @@ App Service については以下の公式ドキュメントをご覧くださ�
 　  
 ## function.proj の追加 ##
 　  
-関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「高度なツール」->「移動」  
+ファルの追加は、関数アプリのメニューからでも可能ですが、Kudu コンソールからも可能です。Kudu コンソールを体験いただくために、今回は Kudu コンソールからファイルを追加します。
+　  
+　  
+Kudu コンソールについては以下の公式ドキュメントをご覧ください。
+　  
+[Kudu コンソールの目的と機能について説明する](https://docs.microsoft.com/ja-jp/learn/modules/azure-diagnose-application-startup-errors-with-kudu-console/2-kudu-console-concepts?WT.mc_id=AZ-MVP-5002467)
+　  
+　  
+関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「高度なツール」->「移動」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f060.png?raw=true)
 　  
 　  
@@ -397,7 +409,9 @@ cd D:\home\site\wwwroot\TimerTriggerCustomMetric
 　  
 　  
 　  
-「＋」->「New File」 
+「＋」->「New File」
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f063.png?raw=true)
 　  
 　  
@@ -447,6 +461,9 @@ function.proj とファイル名を入力
 　  
 　  
 ## run.csx の編集 ##
+　  
+　  
+今度は逆に、関数アプリの構成ファイルをポータルの関数アプリのメニューから編集してみます。
 　  
 　  
 関数アプリリソース「CustomMetricHandsOn」のリソースメニューから「関数」->「TimerTriggerCustomMetric」
