@@ -14,8 +14,8 @@
 マネージド ID については[こちら](https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview?WT.mc_id=AZ-MVP-5002467)の公式ドキュメントをご覧ください。
 　  
 　  
-## 関数アプリのリソース作成  ##
 　  
+## 関数アプリのリソース作成  ##
 　  
 グローバル検索から関数アプリのブレードを開きます。
 　  
@@ -95,7 +95,6 @@
 　  
 ## リソースへのマネージド ID の割り当て ##
 　  
-　  
 マネージド ID は、Azure リソースでのみ使用できる特殊なタイプのサービス プリンシパルです。関数アプリのリソースのマネージド IDをオンにすることで、関数アプリに Azure の他のリソースへの操作に対するアクセス許可を付与可能になります。
 　  
 　  
@@ -150,15 +149,14 @@
 　  
 # App Service #
 　  
-　  
 App Service は、Web アプリや REST API など HTTP ベースのサービスをホストする Azure の PaaS 環境を提供するリソースです。
 　  
 　  
 App Service については[こちら](https://docs.microsoft.com/ja-jp/azure/app-service/overview?WT.mc_id=AZ-MVP-5002467)の公式ドキュメントをご覧ください。
 　  
 　  
-## App Service のリソース作成  ##
 　  
+## App Service のリソース作成  ##
 　  
 グローバル検索から App Service のブレードを開きます。
 　  
@@ -190,7 +188,6 @@ App Service については[こちら](https://docs.microsoft.com/ja-jp/azure/ap
 　  
 # サービスプリンシパル #
 　  
-　  
 次に単体の Azure のリソースとしてサービスプリンシパルを作成します。先ほど、関数アプリでマネージド ID を有効にしました。マネージド ID はオンにしたリソースのみに紐づくサービスプリンシパルですが、アプリの登録で作成した、サービスプリンシパルは、関数アプリや App Service にホストされたアプリなどから利用することができます。
 　  
 　  
@@ -207,6 +204,7 @@ App Service については[こちら](https://docs.microsoft.com/ja-jp/azure/ap
 　  
 　  
 なお、通常はマネージド IDが利用できるシナリオでは、マネージド IDを利用することが推奨となっています。
+　  
 　  
 　  
 ## アプリの登録のリソース作成  ##
