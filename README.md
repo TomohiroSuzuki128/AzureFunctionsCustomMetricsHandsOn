@@ -321,6 +321,16 @@ App Service については以下の公式ドキュメントをご覧くださ�
 以下の通り入力して下さい。
 　  
 　  
+```JavaScript
+                "actions": [
+                    "microsoft.web/*",
+                    "Microsoft.Insights/*",
+                    "Microsoft.WorkloadMonitor/*",
+                    "Microsoft.Resources/*"
+                ],
+```
+　  
+　  
 ![](https://github.com/TomohiroSuzuki128/AzureFunctionsCustomMetricsHandsOn/blob/main/images/f047.png?raw=true)
 　  
 　  
